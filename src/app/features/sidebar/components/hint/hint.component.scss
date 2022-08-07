@@ -1,0 +1,47 @@
+@use 'oxygen';
+@use 'layout/sidebar';
+
+$hint-height: 9rem;
+$circle-border: 0.3rem;
+$circle-inner-diameter: 3rem;
+$circle-outer-diameter: $circle-inner-diameter + $circle-border;
+$circle-offset: 0.5rem;
+
+:host {
+    display: block;
+    padding-top: calc(($circle-outer-diameter / 2) - $circle-border);
+
+    :host-context(.sidebar--collapsed) {
+        display: none;
+    }
+}
+
+.hint {
+    position: relative;
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: oxygen.$spacing-200;
+    height: $hint-height;
+    text-align: center;
+    border-radius: oxygen.$border-radius-400;
+    background: oxygen.$color-accent-light;
+    padding: oxygen.$spacing-500 oxygen.$spacing-400 oxygen.$spacing-400;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: $circle-inner-diameter;
+        height: $circle-inner-diameter;
+        border-radius: 50%;
+        transform: translateY(calc(-50% + $circle-offset));
+        background: oxygen.$color-background-secondary;
+        box-shadow: 0 0 0 $circle-border oxygen.$color-accent-light;
+    }
+}
+
+.hint__description {
+    @include oxygen.font-size('body-s');
+}

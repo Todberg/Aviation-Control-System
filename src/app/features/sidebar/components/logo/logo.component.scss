@@ -1,0 +1,42 @@
+@use 'oxygen';
+@use 'abstracts/mixins';
+@use 'layout/sidebar';
+
+$padding: calc(sidebar.$collapsed-width / 2 - 1.25rem); // Fix magic number
+
+:host {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: oxygen.$color-text;
+    gap: oxygen.$spacing-400;
+    padding-top: oxygen.$spacing-300;
+    padding-bottom: oxygen.$spacing-300;
+    text-decoration: none;
+    
+    @include mixins.ltr {
+        padding-right: oxygen.$spacing-300;
+        padding-left: $padding;
+    }
+
+    @include mixins.rtl {
+        padding-left: oxygen.$spacing-300;
+        padding-right: $padding;
+    }
+}
+
+.logo__image {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: oxygen.$color-background-primary;
+}
+
+.logo__name {
+    white-space: nowrap;
+}

@@ -1,0 +1,80 @@
+@use 'oxygen';
+@use 'abstracts/mixins';
+@use 'layout/sidebar';
+
+$border-width: oxygen.$spacing-200;
+$padding: calc((sidebar.$collapsed-width - $border-width) / 2 - 0.75rem); // Fix magic number.
+
+:host {
+    display: block;
+}
+
+a.link {
+    display: flex;
+    align-items: center;
+    gap: oxygen.$spacing-400;
+    width: 100%;
+    padding-top: oxygen.$spacing-400;
+    padding-bottom: oxygen.$spacing-400;
+    text-decoration: none;
+
+    @include mixins.ltr {
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-left-width: $border-width;
+    }
+
+    @include mixins.rtl {
+        border-right-style: solid;
+        border-right-color: transparent;
+        border-right-width: $border-width;
+    }
+
+    &:hover,
+    &:focus,
+    &.active {
+        color: oxygen.$color-accent;
+        background: oxygen.$color-accent-light;
+    }
+
+    &:hover,
+    &:focus {
+        @include mixins.ltr {
+            border-left-color: oxygen.$color-accent-light;
+        }
+    
+        @include mixins.rtl {
+            border-right-color: oxygen.$color-accent-light;
+        }
+    }
+
+    &.active {
+        @include mixins.ltr {
+            border-left-color: oxygen.$color-accent;
+        }
+
+        @include mixins.rtl {
+            border-right-color: oxygen.$color-accent;
+        }
+    }
+
+    @include mixins.ltr {
+        padding-left: $padding;
+    }
+
+    @include mixins.rtl {
+        padding-right: $padding;
+    }
+}
+
+.link__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link__name {
+    @include oxygen.font-size('body-m');
+    flex-grow: 1;
+    white-space: nowrap;
+}

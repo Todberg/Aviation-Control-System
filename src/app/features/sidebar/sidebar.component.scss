@@ -1,0 +1,34 @@
+@use 'oxygen';
+@use 'layout/sidebar';
+
+:host {
+    display: grid;
+    grid-template-rows: 8rem 1fr auto;
+    height: 100%;
+    background: oxygen.$color-background-secondary;
+}
+
+header,
+nav,
+footer {
+    overflow-x: hidden;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: oxygen.$spacing-600;
+    padding: oxygen.$spacing-400;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: oxygen.$spacing-400;
+
+    :host-context(.sidebar--collapsed) & {
+        justify-content: center;
+    }
+}

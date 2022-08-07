@@ -1,0 +1,13 @@
+@use '../colors/colors' as *;
+
+
+$transition-duration-fast: 0.2s;
+$transition-timing-function: ease;
+
+$border-radius-200: 0.25rem; // ~ 4px
+$border-radius-400: 0.5rem; // ~ 8px 
+
+$border-width: 1px;
+$border-style: solid;
+
+$border: $border-width $border-style $color-border;

@@ -1,0 +1,13 @@
+/// Produces a selector for targeting a left-to-right direction.
+@mixin ltr {
+    :host-context([dir=ltr]) & {
+        @content;
+    }
+}
+
+/// Produces a selector for targeting a right-to-left direction.
+@mixin rtl {
+    :host-context([dir=rtl]) & {
+        @content;
+    }
+}

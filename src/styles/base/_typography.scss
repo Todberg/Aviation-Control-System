@@ -1,0 +1,11 @@
+@use 'oxygen';
+
+html {
+    font-size: 1rem;
+}
+
+body {
+  @include oxygen.font-size('body-m');
+  font-family: 'Orsted Sans', sans-serif;
+  color: oxygen.$color-text;
+}

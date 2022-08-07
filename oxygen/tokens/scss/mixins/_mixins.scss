@@ -1,0 +1,19 @@
+@use '../colors/colors' as *;
+
+/// Produces the link styles along with its various states.
+@mixin link {
+    &.--link {
+        text-decoration: none;
+        outline: none;
+        color: $color-link;
+    }
+
+    &.--link:hover {
+        text-decoration: underline;
+    }
+    
+    &.--link--disabled {
+        color: $color-text-disabled;
+        pointer-events: none;
+    }
+}

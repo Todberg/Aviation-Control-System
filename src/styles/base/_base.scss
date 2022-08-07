@@ -1,0 +1,17 @@
+@use 'oxygen';
+
+@include oxygen.font-defaults();
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  @include oxygen.link();
+}

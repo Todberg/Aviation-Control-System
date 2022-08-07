@@ -1,0 +1,21 @@
+/* Declarative colors */
+$color-black: #3B4956;
+$color-white: #FFF;
+
+$color-neutral-4: #99A4AE;
+$color-neutral-3: #B3BBC2;
+$color-neutral-2: #E5E8EB;
+$color-neutral-1: #F5F6F7;
+
+$color-accent: #4099DA;
+$color-accent-light: #EAF4FB;
+
+/* Semantic colors */
+$color-text: $color-black;
+$color-text-disabled: $color-neutral-4;
+$color-link: $color-accent;
+
+$color-border: $color-neutral-3;
+$color-box-shadow: $color-neutral-2;
+$color-background-primary: $color-neutral-1;
+$color-background-secondary: $color-white;

@@ -1,0 +1,13 @@
+<ul>
+    <li *ngFor="let navigationLink of navigationLinks">
+        <a class="link"
+            oxygen-link [disabled]="navigationLink.disabled"
+            [routerLink]="navigationLink.path" routerLinkActive="active"
+        >
+            <div class="link__icon">
+                <oxygen-icon></oxygen-icon>
+            </div>
+            <span class="link__name">{{ navigationLink.name }}</span>
+        </a>
+    </li>
+</ul>

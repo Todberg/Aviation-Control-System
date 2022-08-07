@@ -1,0 +1,114 @@
+@use 'sass:map';
+
+@font-face {
+    font-family: 'Orsted Sans';
+    src: url('../../../fonts/OrstedSans/OrstedSans-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Orsted Sans';
+    src: url('../../../fonts/OrstedSans/OrstedSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orsted Sans';
+    src: url('../../../fonts/OrstedSans/OrstedSans-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/// The h1 headings.
+/// @type Map
+$heading-1: (
+    font-size: 1.125rem, // ~ 18px
+    font-weight: 600,
+    line-height: 1.8rem,
+) !default;
+
+/// The h2 headings.
+$heading-2: (
+    font-size: 1rem, // ~ 16px
+    font-weight: 600,
+    line-height: 1.6rem,
+) !default;
+
+/// The h3 headings.
+/// @type Map
+$heading-3: (
+    font-size: 0.875rem, // ~ 14px
+    font-weight: 600,
+    line-height: 1.4rem,
+) !default;
+
+/// The body text sizing for large text.
+/// @type Map
+$body-l: (
+    font-size: 1rem, // ~ 16px
+    font-weight: 400,
+    line-height: 1.6rem,
+) !default;
+
+/// The body text sizing for medium text.
+/// @type Map
+$body-m: (
+    font-size: 0.875rem, // ~ 14px
+    font-weight: 400,
+    line-height: 1.4rem,
+) !default;
+
+/// The body text sizing for small text.
+/// @type Map
+$body-s: (
+    font-size: 0.75rem, // ~ 12px
+    font-weight: 400,
+    line-height: 1.2rem,
+) !default;
+
+/// The various font sizes.
+/// @type Map
+$fonts: (
+    heading-1: $heading-1,
+    heading-2: $heading-2,
+    heading-3: $heading-3,
+    body-s: $body-s,
+    body-m: $body-m,
+    body-l: $body-l
+);
+
+/// Produces the font scale based on the name.
+/// @param {String} $name - The name of the font size.
+/// @access public
+@mixin font-size($name) {
+    @if not map.has-key($fonts, $name) {
+        @error 'Unable to find a font with the name: `#{$name}`';
+    }
+
+    $font: map.get($fonts, $name);
+
+    @each $property, $value in $font {
+        #{$property}: #{$value};
+    }
+}
+
+/// Produces the default heading and paragraph font sizes (h1, h2, h3 etc).
+@mixin font-defaults() {
+    h1  {
+        @include font-size('heading-1');
+    }
+    
+    h2 {
+        @include font-size('heading-2');
+    }
+    
+    h3 {
+        @include font-size('heading-3');
+    }
+
+    p {
+        @include font-size('body-m');
+    }
+}

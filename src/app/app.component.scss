@@ -1,0 +1,39 @@
+@use 'oxygen';
+@use 'abstracts/mixins';
+@use 'layout/sidebar';
+
+:host {    
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    width: sidebar.$expanded-width;
+    transition: width oxygen.$transition-duration-fast oxygen.$transition-timing-function;
+
+    @include mixins.ltr {
+        border-right-style: oxygen.$border-style;
+        border-right-width: oxygen.$border-width;
+        border-right-color: oxygen.$color-neutral-2;    
+    }
+
+    @include mixins.rtl {
+        border-left-style: oxygen.$border-style;
+        border-left-width: oxygen.$border-width;
+        border-left-color: oxygen.$color-neutral-2;
+    }
+    
+    &--collapsed {
+        width: sidebar.$collapsed-width;
+    }
+}
+
+.main {
+    flex-grow: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: oxygen.$spacing-500;
+    background: oxygen.$color-background-primary;
+}
